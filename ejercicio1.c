@@ -13,7 +13,7 @@ void main() {
 
         int matriz1[n][n];
         int matriz2[n][n];
-        int matriz_resultante[n][n];
+        int matrizResultante[n][n];
 
         //LLENANDO MATRIZ 1
         printf("\nIngrese la matriz 1:\n");
@@ -60,29 +60,30 @@ void main() {
         for (i = 0; i < n; i++) {
             printf("[ ");
             for (j = 0; j < n; j++) {
-                matriz_resultante[i][j] = 0;
+                matrizResultante[i][j] = 0;
                 for (int h = 0; h < n; h++) {
-                    matriz_resultante[i][j] = matriz_resultante[i][j]+(matriz1[i][h] * matriz2[h][j]);
+                    matrizResultante[i][j] = matrizResultante[i][j]+(matriz1[i][h] * matriz2[h][j]);
                 }
-                printf("%d ", matriz_resultante[i][j]);
+                printf("%d ", matrizResultante[i][j]);
             }
             printf("]");
             printf("\n");
         }
 
-        //Da cuales son primos y en que eposicion
+        // Muestra cuales son primos y en cual posicion estan
         printf("\n");
         contador = 0;
         int cantidadPrimos=0;
         for (fila = 0; fila < n; fila++) {
             for (col = 0; col < n; col++) {
-                for (j = 1; j <= matriz_resultante[fila][col]; j++) {
-                    if (matriz_resultante[fila][col] % j == 0) {
+                for (j = 1; j <= matrizResultante[fila][col]; j++) {
+                    if (matrizResultante[fila][col] % j == 0) {
                         contador++;
                     }
                 }
                 if (contador == 2) {
-                        printf("Número primo:%d y se encuentra en la posición (%d,%d)\n", matriz_resultante[fila][col], fila + 1, col + 1);
+					
+                        printf("Número primo:%d y se encuentra en la posición (%d,%d)\n", matrizResultante[fila][col], fila + 1, col + 1);
                         cantidadPrimos++;
                     }
             }
@@ -95,13 +96,13 @@ void main() {
             i = 0;
             for (fila = 0; fila < n; fila++) {
                 for (col = 0; col < n; col++) {
-                    for (j = 1; j <= matriz_resultante[fila][col]; j++) {
-                        if (matriz_resultante[fila][col] % j == 0) {
+                    for (j = 1; j <= matrizResultante[fila][col]; j++) {
+                        if (matrizResultante[fila][col] % j == 0) {
                             contador++;
                         }
                     }
                      if (contador == 2) {
-                            vPrimos[i] = matriz_resultante[fila][col];
+                            vPrimos[i] = matrizResultante[fila][col];
                             i++;
                         }
                 }
